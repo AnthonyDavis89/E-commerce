@@ -10,10 +10,7 @@ router.get('/', (req, res) => {
   // be sure to include its associated Category and Tag data
   Product.findAll({
     attributes: [
-      'id',
-      'product_name',
-      'price',
-      'stock'
+      'id','product_name','price','stock'
     ],
     include: [{
       model: Category,
@@ -25,7 +22,7 @@ router.get('/', (req, res) => {
     }
   ]
   })
-  .then(productDbData => res.json(productDbData))
+  .then(productData => res.json(productData))
   .catch(err => {
     console.log(err);
     res.status(400).json(err);
@@ -41,10 +38,7 @@ router.get('/:id', (req, res) => {
       id: req.params.id
     },
     attributes: [
-      'id',
-      'product_name',
-      'price',
-      'stock'
+      'id','product_name','price','stock'
     ],
     include: [
       {
@@ -53,12 +47,12 @@ router.get('/:id', (req, res) => {
       }
     ]
   })
-  .then(productDbData =>{
-    if(!productDbData){
-      res.status(404).json({message: 'Cannot find product with this ID!!!'});
+  .then(productData =>{
+    if(!productData){
+      res.status(404).json({message: 'No product was located'});
       return;
     }
-    res.json(productDbData);
+    res.json(productData);
   })
   .catch(err=>{
     console.log(err);
@@ -148,12 +142,12 @@ router.delete('/:id', (req, res) => {
       id: req.params.id
     }
   })
-  .then(productDbData => {
-    if(!productDbData){
-      res.status(404).json({message: 'Cannot find product with this ID!!!'});
+  .then(productData => {
+    if(!productData){
+      res.status(404).json({message: 'No product was located'});
       return;
     }
-    res.json(productDbData);
+    res.json(productData);
   })
   .catch(err=>{
     console.log(err);
