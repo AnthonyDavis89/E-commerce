@@ -2,7 +2,7 @@
 
 ## Installation
 
-repo <https://anthonydavis89.github.io/E-commerce/>
+repo <https://github.com/AnthonyDavis89/E-commerce>
 
 video <https://drive.google.com/file/d/1rnvPKIeH0FDw6ESsBQJhx-bmZOFT50rx/view?usp=sharing>
 
